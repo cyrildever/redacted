@@ -20,7 +20,7 @@ type Redactor struct {
 
 //--- METHODS
 
-// Redact ...
+// Redact transforms the passed line
 func (r Redactor) Redact(line string, delimiters ...string) string {
 	var actualDelimiters []string
 	for _, delim := range delimiters {
@@ -48,19 +48,10 @@ func (r Redactor) Redact(line string, delimiters ...string) string {
 	return strings.Join(outputs, " ")
 }
 
-// Expand ...
-func (r Redactor) Expand(line string, delimiters ...string) string {
-	var actualDelimiters []string
-	for _, delim := range delimiters {
-		if delim != " " && delim != "\t" && delim != "\n" {
-			actualDelimiters = append(actualDelimiters, delim)
-		}
-	}
-	if len(actualDelimiters) == 0 {
-		actualDelimiters = append(actualDelimiters, "\\s")
-	}
+// Expand deciphers the passed line
+func (r Redactor) Expand(line string) string {
 	var outputs []string
-	re := regexp.MustCompile(strings.Join(actualDelimiters, ""))
+	re := regexp.MustCompile(`\s`)
 	words := re.Split(line, -1)
 	for _, word := range words {
 		if deciphered, err := r.Cipher.Decrypt(base256.Readable(word)); err == nil {
