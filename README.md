@@ -31,6 +31,7 @@ Usage of ./redacted:
   -t string
         the optional tag that prefixes words to redact (default "~")
 ```
+The dictionary file must contain a list of word separated by a space.
 
 Download the version for the platform of your choice then execute the following command:
 ```console
