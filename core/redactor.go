@@ -47,7 +47,7 @@ func (r Redactor) Redact(line string, delimiters ...string) string {
 			} else if r.Tag != "" && strings.HasPrefix(word, r.Tag) {
 				toRedact := word[len(r.Tag):]
 				if obfuscated, err := r.Cipher.Encrypt(toRedact); err == nil && obfuscated != "" {
-					outputs = append(outputs, obfuscated.String())
+					outputs = append(outputs, r.Tag+obfuscated.String())
 					continue
 				}
 			}
@@ -86,7 +86,12 @@ func (r Redactor) Expand(line string) string {
 					outputs = append(outputs, deciphered)
 					continue
 				}
+				if expanded {
+					outputs = append(outputs, r.Tag+deciphered)
+					continue
+				}
 			}
+
 		} else if !r.both && r.Dictionary.IsEmpty() {
 			if r.Tag != "" && strings.HasPrefix(word, r.Tag) {
 				toExpand := word[len(r.Tag):]

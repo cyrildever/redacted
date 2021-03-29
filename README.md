@@ -40,6 +40,8 @@ $ ./redacted -i=myFile.txt -d=myDictionay.txt -o=myRedactedFile.txt
 ```
 _NB: Use `redacted.exe` for Windows._
 
+__IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
+
 #### 2. Libraries
 
 <u>Go</u>
