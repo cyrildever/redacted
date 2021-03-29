@@ -17,15 +17,28 @@ As of the latest version, this repository comes with three different ways to use
 
 ### Usage
 
-#### Executable
+#### 1. Executables
+
+```
+Usage of ./redacted:
+  -b    add to use both dictionary and tag
+  -d string
+        the optional path to the dictionary of words to redact
+  -i string
+        the path to the document to be redacted
+  -o string
+        the name of the output file
+  -t string
+        the optional tag that prefixes words to redact (default "~")
+```
 
 Download the version for the platform of your choice then execute the following command:
 ```console
-$ ./redacted -i myFile.txt -d myDictionay.txt -o myRedactedFile.txt
+$ ./redacted -i=myFile.txt -d=myDictionay.txt -o=myRedactedFile.txt
 ```
 _NB: Use `redacted.exe` for Windows._
 
-#### Libraries
+#### 2. Libraries
 
 <u>Go</u>
 
