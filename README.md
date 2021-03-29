@@ -30,6 +30,7 @@ Usage of ./redacted:
         the name of the output file
   -t string
         the optional tag that prefixes words to redact (default "~")
+  -x    add to expand a redacted document
 ```
 The dictionary file must contain a list of word separated by a space.
 

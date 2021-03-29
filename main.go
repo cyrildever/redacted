@@ -16,11 +16,14 @@ import (
 //	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt`
 //	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -t="§§"`
 // - to use them both:
-//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt  -t="§§" -b`
+//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -t="§§" -b`
+// - to expand a redacted document:
+//	`$ ./redacted -x -i=myRedactedFile.txt -o=myRecoveredFile.txt -d=myDictionary.txt -t="§§"
 func main() {
 	log := logger.Init("main", "application")
 
 	// Read arguments
+	expand := flag.Bool("x", false, "add to expand a redacted document")
 	input := flag.String("i", "", "the path to the document to be redacted")
 	output := flag.String("o", "", "the name of the output file")
 	dic := flag.String("d", "", "the optional path to the dictionary of words to redact")
@@ -39,5 +42,9 @@ func main() {
 		log.Crit("Tag and dictionary must be set if you want to use them both")
 		return
 	}
-	log.Info("Start redacting...", "input", *input, "output", *output, "dictionary", *dic, "tag", *tag, "useBoth", *useBoth)
+	msg := "Start redacting..."
+	if *expand {
+		msg = "Start expanding..."
+	}
+	log.Info(msg, "input", *input, "output", *output, "dictionary", *dic, "tag", *tag, "useBoth", *useBoth, "expand", *expand)
 }
