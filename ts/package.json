@@ -1,0 +1,45 @@
+{
+  "name": "redacted-ts",
+  "version": "0.0.1",
+  "description": "Redacting classified documents",
+  "main": "dist/lib/src/typescript/index.js",
+  "types": "dist/lib/src/typescript/index.d.ts",
+  "scripts": {
+    "compile": "eslint lib --ext .ts && tsc",
+    "fix": "eslint lib --ext .ts --fix",
+    "test": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=9001 --mount=/:test/src/typescript",
+    "fix-test": "eslint test --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrildever/redacted.git"
+  },
+  "keywords": [
+    "data",
+    "obfuscation",
+    "data masking",
+    "redacted",
+    "classified"
+  ],
+  "author": "Cyril Dever <cdever@edgewhere.fr>",
+  "license": "BSD-2-Clause-Patent",
+  "bugs": {
+    "url": "https://github.com/cyrildever/redacted/issues"
+  },
+  "homepage": "https://github.com/cyrildever/redacted#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.13.39",
+    "@typescript-eslint/eslint-plugin": "~2.30.0",
+    "@typescript-eslint/parser": "~2.30.0",
+    "browserify": "16.5.0",
+    "chai": "^4.2.0",
+    "eslint": "~6.8.0",
+    "eslint-plugin-no-loops": "~0.3.0",
+    "live-server": "^1.2.1",
+    "mocha": "^6.2.3",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.8.3"
+  }
+}
