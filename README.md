@@ -39,6 +39,22 @@ go get github.com/cyrildever/redacted
 npm install redacted-ts
 ```
 
+```typescript
+import { DefaultRedactor, Dictionary } from 'redacted-ts'
+import { FPECipher, SHA_256 } from 'feistel-cipher'
+
+const source = 'Some text ~tagged or using words in a dictionary'
+
+const cipher = new FPECipher(SHA_256, key, 10)
+const redactor = DefaultRedactor(cipher)
+const redacted = redactor.redact(source)
+
+const expanded = redactor.expoand(redacted)
+assert(expanded === source)
+
+const cleansed = redactor.clean(expanded)
+assert(cleansed === 'Some text tagged or using words in a dictionary')
+```
 
 ### License
 
