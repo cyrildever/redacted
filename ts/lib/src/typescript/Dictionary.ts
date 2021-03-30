@@ -8,7 +8,7 @@ export interface Dictionary {
 }
 
 const contains = (dictionary: ReadonlyArray<string>) => (word: string): boolean =>
-  dictionary.includes(word)
+  dictionary.includes(word) || word.endsWith('\'s') && dictionary.includes(word.substr(0, word.length - 2)) || dictionary.includes(word.replace(/[^a-zA-Z0-9]/g, ''))
 
 export const Dictionary = (words: ReadonlyArray<string>): Dictionary => ({
   words,
