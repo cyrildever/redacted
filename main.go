@@ -13,6 +13,12 @@ import (
 	"github.com/cyrildever/redacted/model"
 )
 
+// TODO in config
+const (
+	DEFAULT_KEY    = "d51e1d9a9b12cd88a1d232c1b8730a05c8a65d9706f30cdb8e08b9ed4c7b16a0"
+	DEFAULT_ROUNDS = 10
+)
+
 // Usage
 //
 // For document processing:
@@ -39,7 +45,12 @@ func main() {
 	dic := flag.String("d", "", "the optional path to the dictionary of words to redact")
 	tag := flag.String("t", "~", "the optional tag that prefixes words to redact")
 	useBoth := flag.Bool("b", false, "add to use both dictionary and tag")
+	key := flag.String("k", "", "the optional key for the FPE scheme (leave it empty to use default)")
+	rounds := flag.Int("r", 10, "the number of rounds for the Feistel cipher")
+	engine := flag.String("h", string(hash.SHA_256), "the hash engine for the round function")
+
 	flag.Parse()
+
 	if *input == "" || *output == "" {
 		log.Crit("Input and output file paths are mandatory")
 		os.Exit(1)
@@ -55,11 +66,26 @@ func main() {
 		os.Exit(1)
 		return
 	}
+	hashEngine := hash.Engine(*engine)
+	if *engine != "" && !hash.IsAvailableEngine(hashEngine) {
+		log.Error("Wrong hash engine: default SHA-256 will be used instead!")
+		hashEngine = hash.SHA_256
+	}
+	steadyKey := *key
+	if steadyKey == "" {
+		steadyKey = DEFAULT_KEY
+	}
+	feistelRounds := *rounds
+	if feistelRounds < 2 {
+		log.Error("Not enough rounds: default 10 will be used instead!")
+		feistelRounds = DEFAULT_ROUNDS
+	}
+
 	msg := "Start redacting..."
 	if *expand {
 		msg = "Start expanding..."
 	}
-	log.Info(msg, "input", *input, "output", *output, "dictionary", *dic, "tag", *tag, "useBoth", *useBoth, "expand", *expand)
+	log.Info(msg, "input", *input, "output", *output, "dictionary", *dic, "tag", *tag, "useBoth", *useBoth, "expand", *expand, "engine", hashEngine, "rounds", *rounds)
 
 	// Prepare processing
 	var dictionary model.Dictionary
@@ -73,8 +99,8 @@ func main() {
 		dictionary = d
 	}
 
-	// TODO Params for feistel cipher
-	cipher := feistel.NewFPECipher(hash.SHA_256, "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef", 10)
+	// TODO Handle unsteadiness
+	cipher := feistel.NewFPECipher(hashEngine, steadyKey, feistelRounds)
 	var redactor *core.Redactor
 	if *useBoth {
 		redactor = core.NewRedactor(dictionary, *tag, cipher)
@@ -115,7 +141,7 @@ func main() {
 		if err := scanner.Err(); err != nil {
 			log.Error("An error occurred while reading the input file", "error", err)
 		}
-		log.Info("Redacted over. Everything went well", "elapsed", time.Since(t0).Milliseconds())
+		log.Info("Redacted over. Everything went well ;-)", "elapsed", time.Since(t0).Milliseconds())
 		os.Exit(0)
 	} else {
 		for scanner.Scan() {
@@ -128,7 +154,7 @@ func main() {
 		if err := scanner.Err(); err != nil {
 			log.Error("An error occurred while reading the input file", "error", err)
 		}
-		log.Info("Expansion over. Everything went well", "elapsed", time.Since(t0).Milliseconds())
+		log.Info("Expansion over. Everything went well ;-)", "elapsed", time.Since(t0).Milliseconds())
 		os.Exit(0)
 	}
 }

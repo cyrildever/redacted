@@ -17,6 +17,11 @@ As of the latest version, this repository comes with three different ways to use
 
 ### Usage
 
+You can use either a dictionary or a tag (or both) to identify the words you want to redact in a document.
+The tag should be placed before any word that should be redacted. The default tag is the tilde character (`~`).
+
+For example, the following sentence will only see the word `tagged` redacted: `"This is a ~tagged sentence"`.
+
 #### 1. Executables
 
 ```
@@ -24,10 +29,16 @@ Usage of ./redacted:
   -b    add to use both dictionary and tag
   -d string
         the optional path to the dictionary of words to redact
+  -h string
+        the hash engine for the round function (default "sha-256")
   -i string
         the path to the document to be redacted
+  -k string
+        the optional key for the FPE scheme (leave it empty to use default)
   -o string
         the name of the output file
+  -r int
+        the number of rounds for the Feistel cipher (default 10)
   -t string
         the optional tag that prefixes words to redact (default "~")
   -x    add to expand a redacted document
@@ -49,6 +60,41 @@ __IMPORTANT: Do not use with input texts having lines longer than 65536 characte
 ```console
 go get github.com/cyrildever/redacted
 ```
+
+```golang
+import (
+    "github.com/cyrildever/feistel"
+    "github.com/cyrildever/redacted/core"
+    "github.com/cyrildever/redacted/model"
+)
+
+// Load dictionary
+dic, err := model.FileToDictionary("/path/to/dictionary.txt")
+
+// Prepare FPE cipher
+cipher := feistel.NewFPECipher(hashEngine, key, rounds)
+
+// Instantiate redactor
+redactor := core.NewRedactorWithDictionary(dictionary, cipher)
+
+// Redact a line
+redacted := redactor.Redact(line)
+fmt.Println(redacted)
+
+// Expand a redacted line
+assert.Equal(t, redactor.Expand(redacted), line)
+```
+See the [`Dictionary`](model/dictionary.go) and the [`Redactor`](core/redactor.go) implementations to use other kinds of dictionaries (as a slice or from a string) and/or redactors (with or without tag and dictionary).
+
+NB: You may use any other kind of Format-Preserving Encryption library as long as it respects the followinf interface:
+```golang
+type FPE interface {
+    Decrypt(base256.Readable) (string, error)
+    Encrypt(string) (base256.Readable, error)
+}
+```
+_See my implementation of the `base256.Readable` string type alias in its [module](https://github.com/cyrildever/feistel/common/utils/base256)._
+
 
 <u>TypeScript/JavaScript</u>
 
