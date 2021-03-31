@@ -49,7 +49,6 @@ Download the version for the platform of your choice then execute the following 
 ```console
 $ ./redacted -i=myFile.txt -d=myDictionay.txt -o=myRedactedFile.txt
 ```
-_NB: Use `redacted.exe` for Windows._
 
 __IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
 
@@ -86,7 +85,7 @@ assert.Equal(t, redactor.Expand(redacted), line)
 ```
 See the [`Dictionary`](model/dictionary.go) and the [`Redactor`](core/redactor.go) implementations to use other kinds of dictionaries (as a slice or from a string) and/or redactors (with or without tag and dictionary).
 
-NB: You may use any other kind of Format-Preserving Encryption library as long as it respects the followinf interface:
+NB: You may use any other kind of Format-Preserving Encryption library as long as it respects the following interface:
 ```golang
 type FPE interface {
     Decrypt(base256.Readable) (string, error)
@@ -94,6 +93,11 @@ type FPE interface {
 }
 ```
 _See my implementation of the `base256.Readable` string type alias in its [module](https://github.com/cyrildever/feistel/common/utils/base256)._
+
+To compile in 64-bits (after cloning the repository):
+  - Windows: `GOOS=windows GOARCH=amd64 go build -o bin/redacted.exe main.go`;
+  - MacOS: `GOOS=darwin GOARCH=amd64 go build -o bin/redacted main.go`;
+  - Linux: `GOOS=linux GOARCH=amd64 go build -o bin/redacted-linux main.go`.
 
 
 <u>TypeScript/JavaScript</u>
