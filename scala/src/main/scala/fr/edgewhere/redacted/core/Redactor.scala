@@ -66,7 +66,9 @@ final case class Redactor(dictionary: Dictionary, tag: Tag, cipher: FormatPreser
 object Redactor {
   type Tag = String
 
-  def apply(dictionary: Dictionary, cipher: FormatPreservingEncryption): Redactor = Redactor(dictionary, "", cipher, false)
+  val DEFAULT_TAG: Tag = "~"
 
-  def apply(tag: Tag, cipher: FormatPreservingEncryption): Redactor = Redactor(Dictionary.EMPTY, tag, cipher, false)
+  def apply(dictionary: Dictionary, cipher: FormatPreservingEncryption): Redactor = Redactor(dictionary, "", cipher, both = false)
+
+  def apply(tag: Tag, cipher: FormatPreservingEncryption): Redactor = Redactor(Dictionary.EMPTY, tag, cipher, both = false)
 }

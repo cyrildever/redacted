@@ -1,6 +1,8 @@
 package fr.edgewhere.redacted.client
 
-import fr.edgewhere.redacted.client.Config.DEFAULT_ROUNDS
+import fr.edgewhere.feistel.common.utils.hash.Engine._
+import fr.edgewhere.redacted.client.Config._
+import fr.edgewhere.redacted.core.Redactor._
 import scopt.{DefaultOParserSetup, OParser, OParserBuilder}
 
 /**
@@ -17,10 +19,10 @@ final case class Config(
   output: String,
   both: Boolean = false,
   expand: Boolean = false,
-  hash: String = "sha-256",
-  rounds: Int = DEFAULT_ROUNDS,
+  hash: Option[Engine] = Some(SHA_256),
+  rounds: Option[Int] = Some(DEFAULT_ROUNDS),
   dictionary: Option[String] = None,
-  tag: Option[String] = Some("~"),
+  tag: Option[Tag] = Some(DEFAULT_TAG),
   var key: Option[String]= None
 ) { self =>
   import Config._
@@ -35,11 +37,11 @@ final case class Config(
    */
   def checks: Boolean = {
     val files = input.nonEmpty && output.nonEmpty
-    val mode = (both && tag.isDefined && dictionary.isDefined) ||
+    val validMode = (both && tag.isDefined && dictionary.isDefined) ||
       (!both && (tag.isDefined || dictionary.isDefined))
     self.key = if (self.key.isDefined) self.key else Some(DEFAULT_KEY)
-    val cipher = self.rounds >= 2 && self.key.nonEmpty /* && isValidEngine(self.hash) */
-    files && mode && cipher
+    val cipher = self.rounds.getOrElse(0) >= 2 && self.key.nonEmpty && isAvailable(self.hash.getOrElse(""))
+    files && validMode && cipher
   }
 
   def isEmpty: Boolean = self.input.isEmpty || self.output.isEmpty
@@ -114,19 +116,19 @@ object Config {
         .abbr("x")
         .action((x, c) => c.copy(expand = true))
         .text("add to expand a redacted document"),
-      opt[String]("hashEngine")
+      opt[Engine]("hashEngine")
         .abbr("h")
-        .action((x, c) => c.copy(hash = x))
-        .text("the hash engine for the round function"),
+        .action((x, c) => c.copy(hash = Some(x)))
+        .text("the hash engine for the round function (default SHA-256)"),
       opt[Int]("rounds")
         .abbr("r")
-        .action((x, c) => c.copy(rounds = x))
-        .text("the number of rounds for the Feistel cipher"),
+        .action((x, c) => c.copy(rounds = Some(x)))
+        .text("the number of rounds for the Feistel cipher (default 10)"),
       opt[String]("dictionary")
         .abbr("d")
         .action((x, c) => c.copy(dictionary = Some(x)))
         .text("the optional path to the dictionary of words to redact"),
-      opt[String]("tag")
+      opt[Tag]("tag")
         .abbr("t")
         .action((x, c) => c.copy(tag = Some(x)))
         .text("the optional tag that prefixes words to redact"),
