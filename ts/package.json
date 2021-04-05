@@ -1,6 +1,6 @@
 {
   "name": "redacted-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
