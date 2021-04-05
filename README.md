@@ -52,6 +52,12 @@ $ ./redacted -i=myFile.txt -d=myDictionay.txt -o=myRedactedFile.txt
 
 __IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
 
+##### <u>Alternative using Java and the redacted JAR</u>
+
+```console
+$ java -cp path/to/redacted.jar fr.edgewhere.redacted.Main -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
+```
+
 #### 2. Libraries
 
 <u>Go</u>
@@ -100,6 +106,28 @@ To compile in 64-bits (after cloning the repository):
   - Linux: `GOOS=linux GOARCH=amd64 go build -o bin/redacted-linux main.go`.
 
 
+<u>Scala/Java</u>
+
+```sbt
+libraryDependencies += "fr.edgewhere" %% "redacted" % "0.1.1"
+```
+
+```scala
+import fr.edgewhere.feistel.common.utils.hash.Engine._
+import fr.edgewhere.feistel.Feistel
+import fr.edgewhere.redacted.core.Redactor
+
+val source = "Some text ~tagged or using words in a dictionary"
+
+val cipher = Feistel.FPECipher(SHA_256, key, 10)
+val redactor = Redactor(dictionary, tag, cipher, true)
+val redacted = redactor.redact(source)
+
+val expanded = redactor.expand(redacted)
+assert(expanded == source)
+```
+
+
 <u>TypeScript/JavaScript</u>
 
 ```console
@@ -116,7 +144,7 @@ const cipher = new FPECipher(SHA_256, key, 10)
 const redactor = DefaultRedactor(cipher)
 const redacted = redactor.redact(source)
 
-const expanded = redactor.expoand(redacted)
+const expanded = redactor.expand(redacted)
 assert(expanded === source)
 
 const cleansed = redactor.clean(expanded)
