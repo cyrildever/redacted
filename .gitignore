@@ -19,5 +19,7 @@ bin
 .vscode
 *.code-workspace
 *.log
-redacted
+/redacted
+!*/redacted
+!scala/*
 example*.txt
