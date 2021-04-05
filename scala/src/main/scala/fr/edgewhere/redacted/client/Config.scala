@@ -37,10 +37,19 @@ final case class Config(
    */
   def checks: Boolean = {
     val files = input.nonEmpty && output.nonEmpty
+    if (!files)
+      throw new Exception(s"""Empty file path [input=${input},output=${output}]""")
+
     val validMode = (both && tag.isDefined && dictionary.isDefined) ||
       (!both && (tag.isDefined || dictionary.isDefined))
+    if (!validMode)
+      throw new Exception(s"""Invalid mode [both=${both},tag=${tag.getOrElse("")},dictionary=${dictionary.getOrElse("")}]""")
+
     self.key = if (self.key.isDefined) self.key else Some(DEFAULT_KEY)
     val cipher = self.rounds.getOrElse(0) >= 2 && self.key.nonEmpty && isAvailable(self.hash.getOrElse(""))
+    if (!cipher)
+      throw new Exception(s"""Invalid cipher [key=${self.key.getOrElse("")},hashEngine=${self.hash.getOrElse("")},round=${self.rounds}]""")
+
     files && validMode && cipher
   }
 
@@ -65,7 +74,7 @@ object Config {
         case Some(config) => _instance = config
         case _ =>
           println(getUsage)
-          throw new Exception("bad arguments")
+          throw new Exception("Bad arguments")
       }
     }
     _instance
@@ -74,7 +83,7 @@ object Config {
   /**
    * @return the Config instance after initialization
    */
-  def get(): Config = if (!_instance.isEmpty) _instance else throw new Exception("config must be initialize first")
+  def get(): Config = if (!_instance.isEmpty) _instance else throw new Exception("Config must be initialize first")
 
   /**
    * Set a new Config if it checks
