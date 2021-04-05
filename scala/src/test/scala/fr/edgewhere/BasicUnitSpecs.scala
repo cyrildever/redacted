@@ -1,4 +1,4 @@
-package fr.edgewhere.redacted
+package fr.edgewhere
 
 import org.scalatest._
 
