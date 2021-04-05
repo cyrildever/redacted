@@ -10,8 +10,8 @@ import fr.edgewhere.redacted.client._
  * @version 1.0
  *
  * @example {{{
- *  $ sbt assembly && java -cp target/scala-2.12/redacted-jar-0.1.1.jar fr.edgewhere.redacted.Main -i=../exampleInput.txt -o=exampleOutput.txt -d=../dictionaryExample.txt -b
- *  $ java -cp target/scala-2.12/redacted-jar-0.1.1.jar fr.edgewhere.redacted.Main -i=../exampleOutput.txt -o=exampleRecovery.txt -d=../dictionaryExample.txt -b -x
+ *  $ sbt assembly && java -cp target/scala-2.12/redacted-jar-0.1.1.jar fr.edgewhere.redacted.Main -i=../exampleInput.txt -o=exampleOutput.txt -d=test/resources/dictionaryExample.txt -b
+ *  $ java -cp target/scala-2.12/redacted-jar-0.1.1.jar fr.edgewhere.redacted.Main -i=../exampleOutput.txt -o=exampleRecovery.txt -d=test/resources/dictionaryExample.txt -b -x
  * }}}
  */
 object Main extends App {

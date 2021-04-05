@@ -8,6 +8,6 @@ package fr.edgewhere.feistel.common.exception
  * @version 1.0
  */
 final case class UnknownEngineException(
-  private val message: String = "unknown engine",
+  private val message: String = "Unknown engine",
   private val cause: Throwable = None.orNull
 ) extends Exception(message, cause)

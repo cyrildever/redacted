@@ -8,6 +8,6 @@ package fr.edgewhere.feistel.common.exception
  * @version 1.0
  */
 final case class NotSameLengthException(
-  private val message: String = "items must be of the same length",
+  private val message: String = "Items must be of the same length",
   private val cause: Throwable = None.orNull
 ) extends Exception(message, cause)

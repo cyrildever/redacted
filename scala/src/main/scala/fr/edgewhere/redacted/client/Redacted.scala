@@ -1,11 +1,13 @@
 package fr.edgewhere.redacted.client
 
+import fr.edgewhere.common.Time.time
 import fr.edgewhere.feistel.common.utils.hash.Engine._
 import fr.edgewhere.feistel.Feistel
 import fr.edgewhere.redacted.client.Config._
 import fr.edgewhere.redacted.client.Operation._
 import fr.edgewhere.redacted.core.Redactor
 import fr.edgewhere.redacted.model.Dictionary.fromFile
+
 import java.io._
 import scala.io.Source
 
@@ -20,7 +22,7 @@ import scala.io.Source
  * @param config The configuration object
  */
 final case class Redacted(operation: Operation, config: Config) {
-  def process: Boolean = {
+  def process: Boolean = time {
     // Prepare processing
     val cipher = Feistel.FPECipher(config.hash.getOrElse(SHA_256), config.key.getOrElse(DEFAULT_KEY), config.rounds.getOrElse(DEFAULT_ROUNDS))
     val dictionary = fromFile(config.dictionary.get)

@@ -7,7 +7,7 @@ import scala.util.control.Breaks._
 import Redactor._
 
 /**
- * Redactor ...
+ * Redactor class
  *
  * @author  Cyril Dever
  * @since   1.0
