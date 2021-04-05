@@ -1,6 +1,7 @@
 package fr.edgewhere.redacted.model
 
 import scala.io.Source
+import scala.util.matching.Regex
 
 /**
  * Dictionary defines the list of words to redact
@@ -10,7 +11,13 @@ import scala.io.Source
  * @version 1.0
  */
 final case class Dictionary(words: List[String]) { self =>
-  def contains (word: String): Boolean = self.words.contains(word)
+  val punctuation: Regex = "[^a-zA-Z0-9]".r
+  val apostropheS: Regex = "'s$".r
+
+  def contains (word: String): Boolean =
+    self.words.contains(word) ||
+      self.words.contains(punctuation.replaceAllIn(word, "")) ||
+      self.words.contains(apostropheS.replaceAllIn(word, ""))
 
   def isEmpty: Boolean = self.words.isEmpty
 
