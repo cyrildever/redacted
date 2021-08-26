@@ -19,6 +19,7 @@ With `redacted`, I provide a simple yet secure tool to help redacting documents 
 As of the latest version, this repository comes with three different ways to use it:
 * An executable (to use on either Linux, MacOS or Windows environment);
 * A Go library;
+* A Scala library to use in the JVM;
 * A TypeScript library (which is also available on [NPM](https://www.npmjs.com/package/redacted-ts)).
 
 
