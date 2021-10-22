@@ -108,10 +108,27 @@ type FPE interface {
 ```
 _See my implementation of the `base256.Readable` string type alias in its [module](https://github.com/cyrildever/feistel/common/utils/base256)._
 
-To compile in 64-bits (after cloning the repository):
-  - Windows: `GOOS=windows GOARCH=amd64 go build -o bin/redacted.exe main.go`;
-  - MacOS: `GOOS=darwin GOARCH=amd64 go build -o bin/redacted main.go`;
-  - Linux: `GOOS=linux GOARCH=amd64 go build -o bin/redacted-linux main.go`.
+To build in 64-bits (after cloning the repository and assuming you are on MacOS):
+
+_(for MacOS)_
+```console
+$ GOOS=darwin GOARCH=amd64 go build -o bin/redacted main.go
+```
+
+_(for Linux)_
+```console
+$ brew install FiloSottile/musl-cross/musl-cross --with-arm
+$ git clone https://github.com/edgewhere/clm-client.git && cd clm-client
+$ CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="x86_64-linux-musl-gcc" go build -o bin/redacted-linux --ldflags '-w -linkmode external -extldflags "-static"' main.go
+```
+&ensp;&ensp;&ensp;_@see [https://github.com/FiloSottile/homebrew-musl-cross](https://github.com/FiloSottile/homebrew-musl-cross)_
+
+_(for Windows)_
+```console
+$ brew install mingw-w64
+$ git clone https://github.com/edgewhere/clm-client.git && cd clm-client
+$ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -o bin/redacted.exe main.go
+```
 
 
 <u>Scala/Java</u>
