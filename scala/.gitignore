@@ -47,3 +47,5 @@ dependency-reduced-pom.xml
 
 # include plugins like assembly
 !project/plugins.sbt
+
+INSTALL.md

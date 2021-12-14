@@ -1,13 +1,13 @@
 package fr.edgewhere.feistel.common.utils.base256
 
 import fr.edgewhere.BasicUnitSpecs
-import javax.xml.bind.DatatypeConverter
+import java.math.BigInteger
 
 /**
  * ReadableSpecs test class
  *
  * @author  Cyril Dever
- * @since   1.0
+ * @since   2.0
  * @version 1.0
  */
 class ReadableSpecs extends BasicUnitSpecs {
@@ -27,7 +27,7 @@ class ReadableSpecs extends BasicUnitSpecs {
     val fpeEdgewhere = Readable("K¡(#q|r5*")
     fpeEdgewhere.length should equal (9)
     val fpeBytes = Seq[Byte](42, 93, 7, 2, 79, 90, 80, 20, 9)
-    fpeBytes should equal (DatatypeConverter.parseHexBinary("2a5d07024f5a501409"))
+    fpeBytes should equal (new BigInteger("2a5d07024f5a501409", 16).toByteArray)
     val fpeB256 = Readable(fpeBytes)
     fpeB256 should equal (fpeEdgewhere)
     fpeB256.length should equal (fpeEdgewhere.length)
