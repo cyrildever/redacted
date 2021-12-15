@@ -9,7 +9,6 @@ assemblyMergeStrategy in assembly := {
 }
 mainClass in assembly := Some("fr.edgewhere.redacted.Main")
 assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
-javacOptions ++= Seq("-source", "17", "-target", "1.8")
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
