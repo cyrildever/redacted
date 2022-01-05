@@ -134,7 +134,7 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -
 <u>Scala/Java</u>
 
 ```sbt
-libraryDependencies += "fr.edgewhere" %% "redacted" % "0.1.1"
+libraryDependencies += "fr.edgewhere" %% "redacted" % "0.3.3"
 ```
 
 ```scala
@@ -183,4 +183,4 @@ Please [contact me](mailto:cdever@edgewhere.fr) to get further information.
 
 
 <hr />
-&copy; 2021 Cyril Dever. All rights reserved.
+&copy; 2021-2022 Cyril Dever. All rights reserved.

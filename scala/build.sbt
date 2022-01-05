@@ -1,6 +1,6 @@
 organization := "fr.edgewhere"
 name := "redacted-jar"
-version := "0.3.2"
+version := "0.3.3"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
@@ -18,5 +18,5 @@ libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.0.1",
   "org.scalatest" %% "scalatest" % "3.0.8", // Do not update to latest yet
   "org.scorexfoundation" %% "scrypto" % "2.1.10",
-  "fr.edgewhere" %% "feistel" % "1.4.0"
+  "fr.edgewhere" %% "feistel" % "1.4.1"
 )
