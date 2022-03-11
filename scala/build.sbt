@@ -1,6 +1,6 @@
 organization := "fr.edgewhere"
 name := "redacted-jar"
-version := "0.3.4"
+version := "0.3.5"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
@@ -17,6 +17,6 @@ resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositori
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.0.1",
   "org.scalatest" %% "scalatest" % "3.0.8", // Do not update to latest yet
-  "org.scorexfoundation" %% "scrypto" % "2.1.10",
+  "org.scorexfoundation" %% "scrypto" % "2.2.1",
   "fr.edgewhere" %% "feistel" % "1.4.1"
 )

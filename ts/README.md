@@ -54,7 +54,7 @@ assert(cleansed === 'Some text tagged or using words in a dictionary')
 ### License
 
 The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
-Please [contact me](mailto:cdever@edgewhere.fr) to get further information.
+Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
 <hr />
