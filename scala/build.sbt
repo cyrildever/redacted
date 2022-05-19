@@ -1,6 +1,6 @@
 organization := "fr.edgewhere"
 name := "redacted-jar"
-version := "0.3.5"
+version := "0.3.6"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
