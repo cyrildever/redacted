@@ -30,25 +30,25 @@
   },
   "homepage": "https://github.com/cyrildever/redacted#readme",
   "dependencies": {
-    "feistel-cipher": "^1.4.2"
+    "feistel-cipher": "^1.4.3"
   },
   "peerDependencies": {
     "blakejs": "^1.2.1",
-    "keccak": "^3.0.2",
+    "keccak": "^3.0.3",
     "sha3": "^2.1.4"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.17",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "blakejs": "^1.2.1",
     "browserify": "17.0.0",
     "chai": "^4.3.7",
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "eslint-plugin-no-loops": "~0.3.0",
-    "keccak": "^3.0.2",
+    "keccak": "^3.0.3",
     "mocha": "^10.2.0",
     "sha3": "^2.1.4",
     "ts-node": "^10.9.1",
