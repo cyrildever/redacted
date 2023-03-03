@@ -27,7 +27,7 @@ final case class Redacted(operation: Operation, config: Config) {
     // Prepare processing
     val cipher = Feistel.FPECipher(config.hash.getOrElse(SHA_256), config.key.getOrElse(DEFAULT_KEY), config.rounds.getOrElse(DEFAULT_ROUNDS))
     val dictionary = fromFile(config.dictionary.get)
-    val redactor = core.Redactor(dictionary, config.tag.getOrElse(""), cipher, config.both)
+    val redactor = Redactor(dictionary, config.tag.getOrElse(""), cipher, config.both)
 
     // Read input
     val src = Source.fromFile(config.input)
