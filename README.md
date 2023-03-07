@@ -16,7 +16,7 @@ It is mainly based off my [Feistel cipher for Format-Preserving Encryption](http
 In some fields (like healthcare for instance), protecting the privacy of data whilst being able to conduct in-depth studies is both vital and mandatory. Redacting documents and databases is therefore the obligatory passage.
 With `redacted`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
 
-As of the latest version, this repository comes with three different ways to use it:
+As of the latest version, this repository comes with four different flavours:
 * An executable (to use on either Linux, MacOS or Windows environment);
 * A Go library;
 * A Scala library to use in the JVM;
@@ -131,16 +131,20 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -
 ```
 
 
-<u>Scala/Java</u>
+<u>Scala</u>
 
+In a Scala 2.12 project:
 ```sbt
-libraryDependencies += "fr.edgewhere" %% "redacted" % "0.3.3"
+libraryDependencies ++= Seq(
+    "com.cyrildever" %% "feistel-jar" % "1.5.0",
+    "com.cyrildever" %% "redacted" % "0.4.0"
+)
 ```
 
 ```scala
-import fr.edgewhere.feistel.common.utils.hash.Engine._
-import fr.edgewhere.feistel.Feistel
-import fr.edgewhere.redacted.core.Redactor
+import com.cyrildever.feistel.common.utils.hash.Engine._
+import com.cyrildever.feistel.Feistel
+import com.cyrildever.redacted.core.Redactor
 
 val source = "Some text ~tagged or using words in a dictionary"
 
@@ -151,6 +155,8 @@ val redacted = redactor.redact(source)
 val expanded = redactor.expand(redacted)
 assert(expanded == source)
 ```
+
+_NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-jdk15to18-1.72.jar`._
 
 
 <u>TypeScript/JavaScript</u>

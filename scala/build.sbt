@@ -16,5 +16,5 @@ libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.1.0",
   "org.scalatest" %% "scalatest" % "3.0.8", // Do not update to latest yet
   "org.scorexfoundation" %% "scrypto" % "2.2.1",
-  "com.cyrildever" %% "feistel" % "1.5.0"
+  "com.cyrildever" %% "feistel-jar" % "1.5.0"
 )

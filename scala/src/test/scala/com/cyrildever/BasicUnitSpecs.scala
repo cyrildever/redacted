@@ -1,6 +1,7 @@
 package com.cyrildever
 
-import org.scalatest._
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
 /**
  * BasicUnitSpecs class
@@ -9,4 +10,4 @@ import org.scalatest._
  * @version     1.0
  * @since       2.0
  */
-abstract class BasicUnitSpecs extends FlatSpec with Matchers
+abstract class BasicUnitSpecs extends AnyFlatSpec with Matchers
