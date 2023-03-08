@@ -1,16 +1,14 @@
-organization := "fr.edgewhere"
+organization := "com.cyrildever"
 name := "redacted-jar"
-version := "0.3.9"
+version := "0.4.0"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
   case PathList("META-INF", _) => MergeStrategy.discard
   case _ => MergeStrategy.first
 }
-mainClass in assembly := Some("fr.edgewhere.redacted.Main")
+mainClass in assembly := Some("com.cyrildever.redacted.Main")
 assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
-
-credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
 resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
 
@@ -18,5 +16,5 @@ libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.1.0",
   "org.scalatest" %% "scalatest" % "3.0.8", // Do not update to latest yet
   "org.scorexfoundation" %% "scrypto" % "2.2.1",
-  "fr.edgewhere" %% "feistel" % "1.4.3"
+  "com.cyrildever" %% "feistel-jar" % "1.5.0"
 )
