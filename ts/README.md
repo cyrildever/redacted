@@ -16,7 +16,7 @@ It is mainly based off my [Feistel cipher for Format-Preserving Encryption](http
 In some fields (like healthcare for instance), protecting the privacy of data whilst being able to conduct in-depth studies is both vital and mandatory. Redacting documents and databases is therefore the obligatory passage.
 With `redacted`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
 
-As of the latest version, this repository comes with four different ways to use it:
+As of the latest version, this repository comes with four different flavours:
 * An executable (to use on either Linux, MacOS or Windows environment);
 * A Go library;
 * A Scala library to use in the JVM;
@@ -55,6 +55,8 @@ assert(cleansed === 'Some text tagged or using words in a dictionary')
 
 The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
 Please [contact me](mailto:cdever@pep-s.com) to get further information.
+
+_NB: It is still under development so use in production at your own risk for now._
 
 
 <hr />
