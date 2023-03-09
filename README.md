@@ -17,9 +17,9 @@ In some fields (like healthcare for instance), protecting the privacy of data wh
 With `redacted`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
 
 As of the latest version, this repository comes with four different flavours:
-* An executable (to use on either Linux, MacOS or Windows environment);
+* Executables (to use on either Linux, MacOS or Windows environments);
 * A Go library;
-* A Scala library to use in the JVM;
+* A Scala library to use in the JVM (which is not yet available on Maven Central Repository);
 * A TypeScript library (which is also available on [NPM](https://www.npmjs.com/package/redacted-ts)).
 
 
