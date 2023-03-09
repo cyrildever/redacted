@@ -1,6 +1,6 @@
 {
   "name": "redacted-ts",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/cyrildever/redacted#readme",
   "dependencies": {
-    "feistel-cipher": "^1.4.3"
+    "feistel-cipher": "^1.5.0"
   },
   "peerDependencies": {
     "blakejs": "^1.2.1",

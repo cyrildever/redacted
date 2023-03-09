@@ -1,6 +1,6 @@
 organization := "com.cyrildever"
 name := "redacted-jar"
-version := "0.4.0"
+version := "0.5.0"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
