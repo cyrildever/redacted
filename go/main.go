@@ -19,21 +19,25 @@ const (
 	DEFAULT_ROUNDS = 10
 )
 
-// Usage
+// Build
+//
+// `$ go build -o redacted main.go && go test ./...`
+//
+// # Usage
 //
 // For document processing:
 //
-// - to use a dictionary:
-//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt`
-// - to use a tag prefix:
-//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt`
-//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -t="§§"`
-// - to use them both:
-//	`$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -t="§§" -b`
-//	`$ go build && ./redacted -i=exampleInput.txt -o=exampleOutput.txt -d dictionaryExample.txt -t="~" -b`
-// - to expand a redacted document:
-//	`$ ./redacted -x -i=myRedactedFile.txt -o=myRecoveredFile.txt -d=myDictionary.txt -t="§§"
-//	`$ go build && ./redacted -x -i=exampleOutput.txt -o=exampleRecovery.txt -d dictionaryExample.txt -t="~" -b`
+//   - to use a dictionary:
+//     `$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt`
+//   - to use a tag prefix:
+//     `$ ./redacted -i=myFile.txt -o=myRedactedFile.txt`
+//     `$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -t="§§"`
+//   - to use them both:
+//     `$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -t="§§" -b`
+//     `$ go build -o redacted && ./redacted -i=exampleInput.txt -o=exampleOutput.txt -d dictionaryExample.txt -t="~" -b`
+//   - to expand a redacted document:
+//     `$ ./redacted -x -i=myRedactedFile.txt -o=myRecoveredFile.txt -d=myDictionary.txt -t="§§"
+//     `$ go build -o redacted && ./redacted -x -i=exampleOutput.txt -o=exampleRecovery.txt -d dictionaryExample.txt -t="~" -b`
 func main() {
 	log := logger.Init("main", "application")
 	t0 := time.Now()

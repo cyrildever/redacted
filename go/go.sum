@@ -180,6 +180,8 @@ github.com/cyrildever/feistel v1.4.4 h1:G3QXnNUDcQ0ln1O0whnjXYMI3omitierw1ItJ9qj
 github.com/cyrildever/feistel v1.4.4/go.mod h1:yjV94n5ieBVv88frjanUJTePFQPk4DHexrSxYPN6Smk=
 github.com/cyrildever/go-utls v1.9.3 h1:XH1RekbLCBmDoEtQ1NTewONdlAekKRpsUUVCAFWG19k=
 github.com/cyrildever/go-utls v1.9.3/go.mod h1:5xDEEfVGTDCLq1OFdKgGaHyBO1RHwP//9wz0LjpvJmI=
+github.com/cyrildever/redacted v0.4.0 h1:EzrYGQ+eOkZFb0rFlvcCaLLnWyaIuNYSCZPW+YxJY5I=
+github.com/cyrildever/redacted v0.4.0/go.mod h1:KWlD0Wgs83uniu5bwj4kI2f2hk4ZGkZRb78XJYz1EJ8=
 github.com/dave/jennifer v1.2.0/go.mod h1:fIb+770HOpJ2fmN9EPPKOqm1vMGhB+TwXKMZhrIygKg=
 github.com/davecgh/go-spew v0.0.0-20171005155431-ecdeabc65495/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

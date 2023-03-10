@@ -1,4 +1,4 @@
-# redacted
+# redacted-ts
 _Redacting classified documents_
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cyrildever/redacted)
@@ -8,19 +8,13 @@ _Redacting classified documents_
 ![npm](https://img.shields.io/npm/dw/redacted-ts)
 ![NPM](https://img.shields.io/npm/l/redacted-ts)
 
-This repository holds the code base for my `redacted` libraries and executables.
-It is mainly based off my [Feistel cipher for Format-Preserving Encryption](https://github.com/cyrildever/feistel) to which I added a few tools to handle document, database and file manipulation to ease out the operation.
+This repository holds the code base for my `redacted-ts` library in TypeScript.
+It is mainly based off my [Feistel cipher for Format-Preserving Encryption](https://github.com/cyrildever/feistel-cipher) to which I added a few tools to handle document, database and file manipulation to ease out the operation.
 
 ### Motivation
 
 In some fields (like healthcare for instance), protecting the privacy of data whilst being able to conduct in-depth studies is both vital and mandatory. Redacting documents and databases is therefore the obligatory passage.
-With `redacted`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
-
-As of the latest version, this repository comes with four different flavours:
-* An executable (to use on either Linux, MacOS or Windows environment);
-* A Go library;
-* A Scala library to use in the JVM;
-* The current TypeScript library.
+With `redacted-ts`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
 
 
 ### Usage

@@ -17,9 +17,9 @@ In some fields (like healthcare for instance), protecting the privacy of data wh
 With `redacted`, I provide a simple yet secure tool to help redacting documents based on either a dictionary, a record layout or a tag to decide which parts should actually be redacted.
 
 As of the latest version, this repository comes with four different flavours:
-* An executable (to use on either Linux, MacOS or Windows environment);
+* Executables (to use on either Linux, MacOS or Windows environments);
 * A Go library;
-* A Scala library to use in the JVM;
+* A Scala library to use in the JVM (which is not yet available on Maven Central Repository);
 * A TypeScript library (which is also available on [NPM](https://www.npmjs.com/package/redacted-ts)).
 
 
@@ -63,7 +63,7 @@ __IMPORTANT: Do not use with input texts having lines longer than 65536 characte
 ##### <u>Alternative using Java and the redacted JAR</u>
 
 ```console
-$ java -cp path/to/redacted.jar fr.edgewhere.redacted.Main -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
+$ java -cp path/to/redacted.jar com.cyrildever.redacted.Main -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
 ```
 
 #### 2. Libraries
@@ -112,13 +112,14 @@ To build in 64-bits (after cloning the repository and assuming you are on MacOS)
 
 _(for MacOS)_
 ```console
+$ cd go
 $ GOOS=darwin GOARCH=amd64 go build -o bin/redacted main.go
 ```
 
 _(for Linux)_
 ```console
 $ brew install FiloSottile/musl-cross/musl-cross --with-arm
-$ git clone https://github.com/edgewhere/clm-client.git && cd clm-client
+$ git clone https://github.com/cyrildever/redacted.git && cd redacted/go
 $ CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="x86_64-linux-musl-gcc" go build -o bin/redacted-linux --ldflags '-w -linkmode external -extldflags "-static"' main.go
 ```
 &ensp;&ensp;&ensp;_@see [https://github.com/FiloSottile/homebrew-musl-cross](https://github.com/FiloSottile/homebrew-musl-cross)_
@@ -126,7 +127,7 @@ $ CGO_ENABLED=1 GOOS=linux GOARCH=amd64 CC="x86_64-linux-musl-gcc" go build -o b
 _(for Windows)_
 ```console
 $ brew install mingw-w64
-$ git clone https://github.com/edgewhere/clm-client.git && cd clm-client
+$ git clone https://github.com/cyrildever/redacted.git && cd redacted/go
 $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -o bin/redacted.exe main.go
 ```
 
@@ -185,7 +186,7 @@ assert(cleansed === 'Some text tagged or using words in a dictionary')
 ### License
 
 The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
-Please [contact me](mailto:cdever@edgewhere.fr) to get further information.
+Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
 <hr />
