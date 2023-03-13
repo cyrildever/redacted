@@ -55,7 +55,7 @@ The dictionary file must contain a list of word separated by a space.
 
 Download the version for the platform of your choice then execute the following command:
 ```console
-$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionay.txt -b
+$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
 ```
 
 __IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
