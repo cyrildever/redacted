@@ -1,5 +1,6 @@
 tsconfig.json
 node_modules
+cli
 lib
 test
 *.tgz

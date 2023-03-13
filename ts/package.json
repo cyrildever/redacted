@@ -1,6 +1,6 @@
 {
   "name": "redacted-ts",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/cyrildever/redacted#readme",
   "dependencies": {
-    "feistel-cipher": "^1.5.0"
+    "feistel-cipher": "^1.5.2"
   },
   "peerDependencies": {
     "blakejs": "^1.2.1",
@@ -40,13 +40,13 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.14.6",
+    "@types/node": "^18.15.1",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "blakejs": "^1.2.1",
     "browserify": "17.0.0",
     "chai": "^4.3.7",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "eslint-plugin-no-loops": "~0.3.0",
     "keccak": "^3.0.3",
     "mocha": "^10.2.0",
