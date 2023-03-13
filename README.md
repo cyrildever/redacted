@@ -55,7 +55,7 @@ The dictionary file must contain a list of word separated by a space.
 
 Download the version for the platform of your choice then execute the following command:
 ```console
-$ ./redacted -i=myFile.txt -d=myDictionay.txt -o=myRedactedFile.txt
+$ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
 ```
 
 __IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
@@ -65,6 +65,14 @@ __IMPORTANT: Do not use with input texts having lines longer than 65536 characte
 ```console
 $ java -cp path/to/redacted.jar com.cyrildever.redacted.Main -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
 ```
+
+#### <u>Alternative using the TypeScript CLI</u>
+
+```console
+$ redacted -i myFile.txt -o myRedactedFile.txt -d myDictionary.txt -b
+```
+
+@see Installation procedure [here](ts/cli/README.md)
 
 #### 2. Libraries
 
@@ -88,7 +96,7 @@ dic, err := model.FileToDictionary("/path/to/dictionary.txt")
 cipher := feistel.NewFPECipher(hashEngine, key, rounds)
 
 // Instantiate redactor
-redactor := core.NewRedactorWithDictionary(dictionary, cipher)
+redactor := core.NewRedactorWithDictionary(dic, cipher)
 
 // Redact a line
 redacted := redactor.Redact(line)

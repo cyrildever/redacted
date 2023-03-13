@@ -1,0 +1,49 @@
+{
+  "name": "redacted-cli",
+  "version": "1.0.0",
+  "description": "Redacting classified documents CLI",
+  "main": "dist/index.js",
+  "bin": {
+    "redacted": "./dist/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "eslint --ext .ts && tsc",
+    "fix": "eslint --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrildever/redacted.git"
+  },
+  "keywords": [
+    "data",
+    "obfuscation",
+    "data masking",
+    "redacted",
+    "classified",
+    "cli",
+    "command-line interface"
+  ],
+  "author": "Cyril Dever <cdever@pep-s.com>",
+  "license": "BSD-2-Clause-Patent",
+  "bugs": {
+    "url": "https://github.com/cyrildever/redacted/issues"
+  },
+  "homepage": "https://github.com/cyrildever/redacted/cli#readme",
+  "dependencies": {
+    "commander": "^10.0.0",
+    "feistel-cipher": "^1.5.2",
+    "redacted-ts": "^0.5.1",
+    "figlet": "^1.5.2"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.5",
+    "@types/node": "^18.15.1",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-plugin-no-loops": "~0.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
