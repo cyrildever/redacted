@@ -5,8 +5,8 @@ import (
 
 	"github.com/cyrildever/feistel"
 	"github.com/cyrildever/feistel/common/utils/hash"
-	"github.com/cyrildever/redacted/core"
-	"github.com/cyrildever/redacted/model"
+	"github.com/cyrildever/redacted/go/core"
+	"github.com/cyrildever/redacted/go/model"
 	"gotest.tools/assert"
 )
 

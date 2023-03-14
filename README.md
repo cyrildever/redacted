@@ -58,6 +58,8 @@ Download the version for the platform of your choice then execute the following 
 $ ./redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
 ```
 
+@also Installation procedure [here](go/INSTALL.md)
+
 __IMPORTANT: Do not use with input texts having lines longer than 65536 characters.__
 
 ##### <u>Alternative using Java and the redacted JAR</u>
@@ -79,14 +81,14 @@ $ redacted -i myFile.txt -o myRedactedFile.txt -d myDictionary.txt -b
 <u>Go</u>
 
 ```console
-go get github.com/cyrildever/redacted
+go get github.com/cyrildever/redacted/go
 ```
 
 ```golang
 import (
     "github.com/cyrildever/feistel"
-    "github.com/cyrildever/redacted/core"
-    "github.com/cyrildever/redacted/model"
+    "github.com/cyrildever/redacted/go/core"
+    "github.com/cyrildever/redacted/go/model"
 )
 
 // Load dictionary
