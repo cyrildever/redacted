@@ -1,6 +1,6 @@
 {
   "name": "redacted-ts",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
@@ -40,9 +40,9 @@
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
-    "@types/node": "^18.15.1",
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
+    "@types/node": "^18.15.3",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "blakejs": "^1.2.1",
     "browserify": "17.0.0",
     "chai": "^4.3.7",
