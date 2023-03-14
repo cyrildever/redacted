@@ -6,7 +6,7 @@ import (
 
 	"github.com/cyrildever/feistel"
 	"github.com/cyrildever/feistel/common/utils/base256"
-	"github.com/cyrildever/redacted/model"
+	"github.com/cyrildever/redacted/go/model"
 )
 
 const DEFAULT_TAG = "~"

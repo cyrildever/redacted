@@ -3,7 +3,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/cyrildever/redacted/model"
+	"github.com/cyrildever/redacted/go/model"
 	"gotest.tools/assert"
 )
 
