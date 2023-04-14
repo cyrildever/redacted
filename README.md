@@ -147,8 +147,8 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -
 In a Scala 2.12 project:
 ```sbt
 libraryDependencies ++= Seq(
-    "com.cyrildever" %% "feistel-jar" % "1.5.0",
-    "com.cyrildever" %% "redacted" % "0.4.0"
+    "com.cyrildever" %% "feistel-jar" % "1.5.1",
+    "com.cyrildever" %% "redacted" % "0.6.1"
 )
 ```
 
@@ -195,7 +195,7 @@ assert(cleansed === 'Some text tagged or using words in a dictionary')
 
 ### License
 
-The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
+The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE). \
 Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
