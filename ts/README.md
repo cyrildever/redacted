@@ -7,7 +7,7 @@ _Redacting classified documents_
 ![GitHub license](https://img.shields.io/github/license/cyrildever/redacted)
 ![npm](https://img.shields.io/npm/dw/redacted-ts)
 
-This repository holds the code base for my `redacted-ts` library in TypeScript as well as its companion CLI: [`redacted-cli`](cli/README.md).
+This repository holds the code base for my `redacted-ts` library in TypeScript as well as its companion CLI: [`redacted-cli`](cli/README.md). \
 It is mainly based off my [Feistel cipher for Format-Preserving Encryption](https://github.com/cyrildever/feistel-cipher) to which I added a few tools to handle document, database and file manipulation to ease out the operation.
 
 ### Motivation
@@ -84,7 +84,7 @@ _NB: The dictionary file must consist of space-separated words._
 
 ### License
 
-The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
+The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE). \
 Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 _NB: It is still under development so use in production at your own risk for now._
