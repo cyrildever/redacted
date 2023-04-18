@@ -148,7 +148,7 @@ In a Scala 2.12 project:
 ```sbt
 libraryDependencies ++= Seq(
     "com.cyrildever" %% "feistel-jar" % "1.5.1",
-    "com.cyrildever" %% "redacted" % "0.6.1"
+    "com.cyrildever" %% "redacted" % "1.0.0"
 )
 ```
 

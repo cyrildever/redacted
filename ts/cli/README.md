@@ -56,7 +56,7 @@ _NB: The dictionary file must consist of space-separated words._
 
 ### License
 
-The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE).
+The use of the `redacted` libraries and executables are subject to fees for commercial purpose and to the respect of the [BSD-2-Clause-Patent license](LICENSE). \
 Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
