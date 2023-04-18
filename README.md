@@ -4,7 +4,6 @@ _Redacting classified documents_
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cyrildever/redacted)
 ![GitHub last commit](https://img.shields.io/github/last-commit/cyrildever/redacted)
 ![GitHub issues](https://img.shields.io/github/issues/cyrildever/redacted)
-![GitHub license](https://img.shields.io/github/license/cyrildever/redacted)
 ![npm](https://img.shields.io/npm/dw/redacted-ts)
 ![NPM](https://img.shields.io/npm/l/redacted-ts)
 
