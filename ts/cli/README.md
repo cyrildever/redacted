@@ -1,7 +1,7 @@
 # redacted-cli
 _A TypeScript-based CLI to redacting classified documents_
 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/cyrildever/redacted)
+![npm](https://img.shields.io/npm/v/redacted-cli?label=tag)
 ![GitHub last commit](https://img.shields.io/github/last-commit/cyrildever/redacted)
 ![GitHub issues](https://img.shields.io/github/issues/cyrildever/redacted)
 ![npm](https://img.shields.io/npm/dw/redacted-cli)
