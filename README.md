@@ -146,8 +146,8 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -
 In a Scala 2.12 project:
 ```sbt
 libraryDependencies ++= Seq(
-    "com.cyrildever" %% "feistel-jar" % "1.5.1",
-    "com.cyrildever" %% "redacted" % "1.0.0"
+    "com.cyrildever" %% "feistel-jar" % "1.5.2",
+    "com.cyrildever" %% "redacted" % "1.0.1"
 )
 ```
 
@@ -166,7 +166,7 @@ val expanded = redactor.expand(redacted)
 assert(expanded == source)
 ```
 
-_NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-jdk15to18-1.72.jar`._
+_NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-jdk15to18-1.73.jar`._
 
 
 <u>TypeScript/JavaScript</u>
