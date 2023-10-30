@@ -1,6 +1,6 @@
 {
   "name": "redacted-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Redacting classified documents CLI",
   "main": "dist/index.js",
   "bin": {
@@ -31,17 +31,17 @@
   },
   "homepage": "https://github.com/cyrildever/redacted/cli#readme",
   "dependencies": {
-    "commander": "^11.0.0",
-    "feistel-cipher": "^1.5.8",
-    "redacted-ts": "^1.0.2",
-    "figlet": "^1.6.0"
+    "commander": "^11.1.0",
+    "feistel-cipher": "^1.5.10",
+    "redacted-ts": "^1.0.3",
+    "figlet": "^1.7.0"
   },
   "devDependencies": {
-    "@types/figlet": "^1.5.6",
-    "@types/node": "20.7.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.3",
-    "@typescript-eslint/parser": "^6.7.3",
-    "eslint": "^8.50.0",
+    "@types/figlet": "^1.5.7",
+    "@types/node": "20.8.9",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
     "eslint-plugin-no-loops": "~0.3.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
