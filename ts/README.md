@@ -24,7 +24,7 @@ The tag should be placed before any word that should be redacted. The default ta
 For example, the following sentence will only see the word `tagged` redacted: `"This is a ~tagged sentence"`.
 
 ```console
-npm install redacted-ts
+$ npm install redacted-ts
 ```
 
 ```typescript

@@ -24,7 +24,7 @@ The tag should be placed before any word that should be redacted. The default ta
 For example, the following sentence will only see the word `tagged` redacted: `"This is a ~tagged sentence"`.
 
 ```console
-pip install redacted-py
+$ pip install redacted-py
 ```
 
 ```python
@@ -43,6 +43,29 @@ assert expanded == source, "Original data should equal ciphered then deciphered 
 
 cleansed = redactor.clean(expanded)
 assert cleansed == "Some text tagged or using words in a dictionary", "Cleaning should remove any tag mark"
+```
+
+You may also use it in the console with the following command line instructions:
+```
+usage: python3 -m redacted [-h] [-b | --both | --no-both] [-d DICTIONARY] [-H HASH] [-i INPUT] [-k KEY] [-o OUTPUT] [-r ROUNDS] [-t TAG] [-x | --expand | --no-expand]
+
+options:
+  -h, --help            show this help message and exit
+  -b, --both, --no-both
+                        Add to use both dictionary and tag
+  -d DICTIONARY, --dictionary DICTIONARY
+                        The optional path to the dictionary of words to redact
+  -H HASH, --hash HASH  The hash engine for the round function [default sha-256]
+  -i INPUT, --input INPUT
+                        The path to the document to be redacted
+  -k KEY, --key KEY     The optional key for the FPE scheme (leave it empty to use default)
+  -o OUTPUT, --output OUTPUT
+                        The name of the output file
+  -r ROUNDS, --rounds ROUNDS
+                        The number of rounds for the Feistel cipher [default 10]
+  -t TAG, --tag TAG     The optional tag that prefixes words to redact [default ~]
+  -x, --expand, --no-expand
+                        Add to expand a redacted document
 ```
 
 
