@@ -1,8 +1,63 @@
 import argparse
+from feistel.fpe import FPECipher
+from feistel.utils.hash import Engine, is_available_engine, SHA_256
+
+
+from redacted.dictionary import file2Dictionary
+from redacted.redactor import Redactor, RedactorWithDictionary, RedactorWithTag
+
+
+DEFAULT_KEY = "d51e1d9a9b12cd88a1d232c1b8730a05c8a65d9706f30cdb8e08b9ed4c7b16a0"
+DEFAULT_ROUNDS = 10
 
 
 def main(args):
-    pass
+    if not args.input or not args.output:
+        raise Exception("Input and output file paths are mandatory")
+    if not args.tag or not args.dictionary:
+        raise Exception("Use to set either a tag or a dictionary")
+    if args.both and (not args.tag or not args.dictionary):
+        raise Exception("Tag and dictionary must be set if you want to use them both")
+    hash_engine = Engine(args.engine)
+    if not args.engine and not is_available_engine(hash_engine):
+        print("WARN - Wrong hash engine: default SHA-256 will be used instead!")
+        hash_engine = SHA_256
+    key = args.key
+    if not key:
+        key = DEFAULT_KEY
+    rounds = int(args.rounds)
+    if rounds < 2:
+        print("WARN - Not enough rounds: default 10 will be used instead!")
+        rounds = DEFAULT_ROUNDS
+
+    msg = "Start redacting..."
+    if args.expand:
+        msg = "Start expanding..."
+    print(f"INFO - {msg}")
+
+    # Prepare processing
+    if args.dictionary:
+        dic = file2Dictionary(args.dictionary)
+
+    cipher = FPECipher(hash_engine, key, rounds)
+    if args.both:
+        redactor = Redactor(dictionary=dic, tag=args.tag, cipher=cipher)
+    elif not dic.is_empty():
+        redactor = RedactorWithDictionary(dictionary=dic, cipher=cipher)
+    else:
+        redactor = RedactorWithTag(tag=args.tag, cipher=cipher)
+
+    # Do process
+    with open(args.input, "r") as inputfile, open(args.output, "w") as outputfile:
+        for line in inputfile:
+            if not args.expand:
+                redacted_line = redactor.redact(line)
+                outputfile.write(redacted_line + "\n")
+            else:
+                expanded_line = redactor.expand(line)
+                outputfile.write(expanded_line + "\n")
+
+    print("INFO - Process completed.")
 
 
 if __name__ == "__main__":
