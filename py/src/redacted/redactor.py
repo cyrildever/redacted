@@ -101,3 +101,13 @@ class Redactor:
 class DefaultRedactor(Redactor):
     def __init__(self, cipher: FPECipher):
         super().__init__(Dictionary([]), DEFAULT_TAG, cipher, False)
+
+
+class RedactorWithDictionary(Redactor):
+    def __init__(self, dictionary: Dictionary, cipher: FPECipher):
+        super().__init__(dictionary, "", cipher, False)
+
+
+class RedactorWithTag(Redactor):
+    def __init__(self, tag: str, cipher: FPECipher):
+        super().__init__(Dictionary([]), tag, cipher, False)

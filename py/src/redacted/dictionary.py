@@ -13,7 +13,7 @@ class Dictionary:
         return (
             word in self.words
             or (word.endswith("'s") and word[: len(word) - 2]) in self.words
-            or word.strip() in self.words
+            or _remove_punctuation(word.strip()) in self.words
         )
 
     def is_empty(self) -> bool:
@@ -63,3 +63,21 @@ def string2Dictionary(string: str, *delimiters) -> Dictionary:
         words = tmp
 
     return Dictionary(words)
+
+
+def _remove_punctuation(string: str) -> str:
+    return (
+        string.strip(".")
+        .strip(",")
+        .strip(":")
+        .strip(";")
+        .strip("?")
+        .strip("!")
+        .strip("(")
+        .strip(")")
+        .strip("-")
+        .strip("_")
+        .strip("+")
+        .strip("/")
+        .strip("\\")
+    )
