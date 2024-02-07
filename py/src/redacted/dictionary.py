@@ -31,6 +31,16 @@ class Dictionary:
         return " ".join(self.words)
 
 
+def file2Dictionary(path: str) -> Dictionary:
+    """
+    Upload the content of a file to a Dictionary
+    """
+    with open(path, "r") as f:
+        data = f.read()
+
+    return string2Dictionary(data)
+
+
 def string2Dictionary(string: str, *delimiters) -> Dictionary:
     """
     Transforms a string into a dictionary (using the optionally passed delimiters [default space])
