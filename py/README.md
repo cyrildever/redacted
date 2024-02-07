@@ -28,7 +28,8 @@ $ pip install redacted-py
 ```
 
 ```python
-from redacted import DefaultRedactor, Dictionary
+from redacted.redactor import DefaultRedactor
+from redacted.dictionary import Dictionary
 from feistel.fpe import FPECipher
 from feistel.utils.hash import SHA_256
 
