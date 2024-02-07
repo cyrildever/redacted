@@ -34,6 +34,9 @@ class Dictionary:
         """
         return " ".join(self.words)
 
+    def __eq__(self, other) -> bool:
+        return self.words == other.words
+
 
 def file2Dictionary(path: str) -> Dictionary:
     """
@@ -51,7 +54,12 @@ def string2Dictionary(string: str, *delimiters) -> Dictionary:
     """
     if len(delimiters) == 0:
         delimiters = [" "]
-    words = list[str]()
+
+    words = [string]
     for delimiter in delimiters:
-        words.expand(string.split(delimiter))
+        tmp = list[str]()
+        for word in words:
+            tmp.extend(word.split(delimiter))
+        words = tmp
+
     return Dictionary(words)
