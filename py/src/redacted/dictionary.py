@@ -10,7 +10,11 @@ class Dictionary:
         """
         Check whether the passed word is already in the Dictionary
         """
-        return word in self.words
+        return (
+            word in self.words
+            or (word.endswith("'s") and word[: len(word) - 2]) in self.words
+            or word.strip() in self.words
+        )
 
     def is_empty(self) -> bool:
         """
