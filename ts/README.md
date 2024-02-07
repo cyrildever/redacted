@@ -91,4 +91,4 @@ _NB: It is still under development so use in production at your own risk for now
 
 
 <hr />
-&copy; 2021-2023 Cyril Dever. All rights reserved.
+&copy; 2021-2024 Cyril Dever. All rights reserved.
