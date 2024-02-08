@@ -6,6 +6,7 @@ _Redacting classified documents_
 ![GitHub issues](https://img.shields.io/github/issues/cyrildever/redacted)
 ![npm](https://img.shields.io/npm/dw/redacted-ts)
 ![NPM](https://img.shields.io/npm/l/redacted-ts)
+![PyPI - Version](https://img.shields.io/pypi/pyversion/redacted-py)
 
 This repository holds the code base for my `redacted` libraries and executables.
 It is mainly based off my [Feistel cipher for Format-Preserving Encryption](https://github.com/cyrildever/feistel) to which I added a few tools to handle document, database and file manipulation to ease out the operation.
@@ -18,6 +19,7 @@ With `redacted`, I provide a simple yet secure tool to help redacting documents 
 As of the latest version, this repository comes with four different flavours:
 * Executables (to use on either Linux, MacOS or Windows environments);
 * A Go library;
+* A Python library;
 * A Scala library to use in the JVM (which is not yet available on Maven Central Repository);
 * A TypeScript library (which is also available on [NPM](https://www.npmjs.com/package/redacted-ts)).
 
@@ -75,12 +77,19 @@ $ redacted -i myFile.txt -o myRedactedFile.txt -d myDictionary.txt -b
 
 @see Installation procedure [here](ts/cli/README.md)
 
+
+#### <u>Alternative using Python</u>
+
+```console
+$ python3 -m redacted -i=myFile.txt -o=myRedactedFile.txt -d=myDictionary.txt -b
+```
+
 #### 2. Libraries
 
 <u>Go</u>
 
 ```console
-go get github.com/cyrildever/redacted/go
+$ go get github.com/cyrildever/redacted/go
 ```
 
 ```golang
@@ -140,6 +149,29 @@ $ git clone https://github.com/cyrildever/redacted.git && cd redacted/go
 $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -o bin/redacted.exe main.go
 ```
 
+<u>Python</u>
+
+```console
+$ pip install redacted-py
+```
+
+```python
+from redacted import DefaultRedactor, Dictionary
+from feistel import FPECipher, SHA_256
+
+source = "Some text ~tagged or using words in a dictionary"
+
+cipher = FPECipher(SHA_256, key, 10)
+redactor = DefaultRedactor(cipher)
+redacted = redactor.redact(source)
+
+expanded = redactor.expand(redacted)
+assert expanded == source, "Original data should equal ciphered then deciphered data"
+
+cleansed = redactor.clean(expanded)
+assert cleansed == "Some text tagged or using words in a dictionary", "Cleaning should remove any tag mark"
+```
+
 
 <u>Scala</u>
 
@@ -172,7 +204,7 @@ _NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-j
 <u>TypeScript/JavaScript</u>
 
 ```console
-npm install redacted-ts
+$ npm install redacted-ts
 ```
 
 ```typescript
@@ -199,4 +231,4 @@ Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
 <hr />
-&copy; 2021-2023 Cyril Dever. All rights reserved.
+&copy; 2021-2024 Cyril Dever. All rights reserved.
