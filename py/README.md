@@ -28,10 +28,8 @@ $ pip install redacted-py
 ```
 
 ```python
-from redacted.redactor import DefaultRedactor
-from redacted.dictionary import Dictionary
-from feistel.fpe import FPECipher
-from feistel.utils.hash import SHA_256
+from redacted import DefaultRedactor, Dictionary
+from feistel import FPECipher, SHA_256
 
 source = "Some text ~tagged or using words in a dictionary"
 
@@ -67,6 +65,16 @@ options:
   -t TAG, --tag TAG     The optional tag that prefixes words to redact [default ~]
   -x, --expand, --no-expand
                         Add to expand a redacted document
+```
+
+
+### Tests
+
+```console
+$ git clone https://github.com/cyrildever/redacted.git
+$ cd redacted/py/
+$ pip install -e .
+$ python3 -m unittest discover
 ```
 
 

@@ -1,10 +1,14 @@
 import argparse
-from feistel.fpe import FPECipher
-from feistel.utils.hash import Engine, is_available_engine, SHA_256
+from feistel import FPECipher, Engine, is_available_engine, SHA_256
 
 
-from redacted.dictionary import file2Dictionary
-from redacted.redactor import Redactor, RedactorWithDictionary, RedactorWithTag
+from redacted import (
+    DEFAULT_TAG,
+    file2Dictionary,
+    Redactor,
+    RedactorWithDictionary,
+    RedactorWithTag,
+)
 
 
 DEFAULT_KEY = "d51e1d9a9b12cd88a1d232c1b8730a05c8a65d9706f30cdb8e08b9ed4c7b16a0"
@@ -14,18 +18,26 @@ DEFAULT_ROUNDS = 10
 def main(args):
     if not args.input or not args.output:
         raise Exception("Input and output file paths are mandatory")
-    if not args.tag or not args.dictionary:
+    if not args.tag and not args.dictionary:
         raise Exception("Use to set either a tag or a dictionary")
-    if args.both and (not args.tag or not args.dictionary):
-        raise Exception("Tag and dictionary must be set if you want to use them both")
-    hash_engine = Engine(args.engine)
-    if not args.engine and not is_available_engine(hash_engine):
+    tag = args.tag
+    if args.both:
+        if not args.dictionary:
+            raise Exception(
+                "Tag and dictionary must be set if you want to use them both"
+            )
+        elif not args.tag:
+            print("WARN - Tag not set: default ~ will be used!")
+            tag = DEFAULT_TAG
+
+    hash_engine = Engine(args.hash)
+    if not args.hash and not is_available_engine(hash_engine):
         print("WARN - Wrong hash engine: default SHA-256 will be used instead!")
         hash_engine = SHA_256
     key = args.key
     if not key:
         key = DEFAULT_KEY
-    rounds = int(args.rounds)
+    rounds = int(args.rounds) if args.rounds else 0
     if rounds < 2:
         print("WARN - Not enough rounds: default 10 will be used instead!")
         rounds = DEFAULT_ROUNDS
@@ -41,11 +53,11 @@ def main(args):
 
     cipher = FPECipher(hash_engine, key, rounds)
     if args.both:
-        redactor = Redactor(dictionary=dic, tag=args.tag, cipher=cipher)
-    elif not dic.is_empty():
+        redactor = Redactor(dictionary=dic, tag=tag, cipher=cipher, both=True)
+    elif not args.expand and not dic.is_empty():
         redactor = RedactorWithDictionary(dictionary=dic, cipher=cipher)
     else:
-        redactor = RedactorWithTag(tag=args.tag, cipher=cipher)
+        redactor = RedactorWithTag(tag=tag, cipher=cipher)
 
     # Do process
     with open(args.input, "r") as inputfile, open(args.output, "w") as outputfile:

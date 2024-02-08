@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.redacted.dictionary import Dictionary, file2Dictionary, string2Dictionary
+from redacted import Dictionary, file2Dictionary, string2Dictionary
 
 
 class TestDictionary(TestCase):

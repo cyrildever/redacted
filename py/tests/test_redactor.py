@@ -1,10 +1,8 @@
 from unittest import TestCase
-from feistel.fpe import FPECipher
-from feistel.utils.hash import BLAKE2B, KECCAK, SHA_256
+from feistel import FPECipher, BLAKE2B, KECCAK, SHA_256
 
 
-from redacted.dictionary import Dictionary
-from redacted.redactor import DefaultRedactor, RedactorWithDictionary
+from redacted import Dictionary, DefaultRedactor, RedactorWithDictionary
 
 
 class TestRedactor(TestCase):

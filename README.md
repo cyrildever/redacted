@@ -156,10 +156,8 @@ $ pip install redacted-py
 ```
 
 ```python
-from redacted.redactor import DefaultRedactor
-from redacted.dictionary import Dictionary
-from feistel.fpe import FPECipher
-from feistel.utils.hash import SHA_256
+from redacted import DefaultRedactor, Dictionary
+from feistel import FPECipher, SHA_256
 
 source = "Some text ~tagged or using words in a dictionary"
 

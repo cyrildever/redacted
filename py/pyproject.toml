@@ -24,7 +24,7 @@ keywords = [
     "classified",
 ]
 dependencies = [
-    "feistel-py >= 0.1.0",
+    "feistel-py >= 0.2.0",
 ]
 requires-python = ">=3.10.2"
 

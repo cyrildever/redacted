@@ -1,9 +1,8 @@
 import re
-from feistel.fpe import FPECipher
+from feistel import FPECipher
 
 
-from redacted.dictionary import Dictionary
-from redacted.tag import DEFAULT_TAG
+from redacted import Dictionary, DEFAULT_TAG
 
 
 class Redactor:
@@ -70,11 +69,15 @@ class Redactor:
                 if self.tag and word.startswith(self.tag):
                     words.append(self.tag + self.cipher.decrypt(word[len(self.tag) :]))
                 else:
-                    deciphered = self.cipher.decrypt(word)
-                    if deciphered and self.dictionary.contains(deciphered):
-                        words.append(deciphered)
+                    if not word.strip():
+                        # Avoid using new lines
+                        continue
                     else:
-                        words.append(word)
+                        deciphered = self.cipher.decrypt(word)
+                        if deciphered and self.dictionary.contains(deciphered):
+                            words.append(deciphered)
+                        else:
+                            words.append(word)
             else:
                 if not self.both and self.dictionary.is_empty():
                     if self.tag and word.startswith(self.tag):
