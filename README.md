@@ -178,8 +178,8 @@ assert cleansed == "Some text tagged or using words in a dictionary", "Cleaning 
 In a Scala 2.12 project:
 ```sbt
 libraryDependencies ++= Seq(
-    "com.cyrildever" %% "feistel-jar" % "1.5.2",
-    "com.cyrildever" %% "redacted" % "1.0.1"
+    "com.cyrildever" %% "feistel-jar" % "1.5.6",
+    "com.cyrildever" %% "redacted" % "1.0.5"
 )
 ```
 

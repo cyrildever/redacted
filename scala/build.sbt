@@ -1,6 +1,6 @@
 organization := "com.cyrildever"
 name := "redacted-jar"
-version := "1.0.4"
+version := "1.0.5"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
@@ -14,7 +14,7 @@ resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositori
 
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.1.0",
-  "org.scalatest" %% "scalatest" % "3.2.17" % "test",
+  "org.scalatest" %% "scalatest" % "3.2.19" % "test",
   "org.scorexfoundation" %% "scrypto" % "2.3.0",
-  "com.cyrildever" %% "feistel-jar" % "1.5.4"
+  "com.cyrildever" %% "feistel-jar" % "1.5.6"
 )
