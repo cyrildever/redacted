@@ -11,14 +11,14 @@ import {
 
 const DEFAULT_KEY = 'd51e1d9a9b12cd88a1d232c1b8730a05c8a65d9706f30cdb8e08b9ed4c7b16a0'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+ 
 console.log(figlet.textSync('Redacted'))
 
 // Define CLI
 const program = new Command()
 
 // TODO Make it programmatic
-const version = process.env.npm_package_version || '1.0.7' // eslint-disable-line @typescript-eslint/strict-boolean-expressions
+const version = process.env.npm_package_version || '1.0.8' // eslint-disable-line @typescript-eslint/strict-boolean-expressions
 
 program
   .version(version)

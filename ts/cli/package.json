@@ -1,6 +1,6 @@
 {
   "name": "redacted-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Redacting classified documents CLI",
   "main": "dist/index.js",
   "bin": {
@@ -8,8 +8,8 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "eslint --ext .ts && tsc",
-    "fix": "eslint --ext .ts --fix"
+    "compile": "eslint ./**/*.ts && tsc",
+    "fix": "eslint ./**/*.ts --fix"
   },
   "repository": {
     "type": "git",
@@ -32,18 +32,18 @@
   "homepage": "https://github.com/cyrildever/redacted/cli#readme",
   "dependencies": {
     "commander": "^11.1.0",
-    "feistel-cipher": "^1.5.11",
-    "redacted-ts": "^1.0.4",
+    "feistel-cipher": "^1.5.13",
+    "redacted-ts": "^1.0.5",
     "figlet": "^1.7.0"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.8",
-    "@types/node": "20.11.16",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-no-loops": "~0.3.0",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-no-loops": "~0.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.2"
   }
 }

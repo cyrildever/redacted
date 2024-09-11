@@ -3,6 +3,7 @@ import { BLAKE2b, KECCAK, SHA_256 } from 'feistel-cipher/dist/lib/src/typescript
 
 import { DefaultRedactor, Dictionary, RedactorWithDictionary, RedactorWithTag, stringToDictionary } from '../../../lib/src/typescript'
 
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 describe('Dictionary', () => {
   it('should build equivalent instances with either a string or an array', () => {
     const str = 'Cyril Antoine Laurent,Dever'
@@ -64,3 +65,4 @@ describe('Redactor', () => {
     })
   })
 })
+/* eslint-enable @typescript-eslint/no-unused-expressions */

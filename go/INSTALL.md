@@ -19,4 +19,4 @@ $ CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC="x86_64-w64-mingw32-gcc" go build -
 
 
 <hr />
-&copy; 2023 Cyril Dever. All right reserved.
+&copy; 2023-2024 Cyril Dever. All right reserved.

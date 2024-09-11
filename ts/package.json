@@ -1,16 +1,16 @@
 {
   "name": "redacted-ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
   "scripts": {
-    "compile": "eslint lib --ext .ts && tsc",
-    "fix": "eslint lib --ext .ts --fix",
-    "test-browser": "tsc && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=9001 --mount=/:test/src/typescript",
+    "compile": "eslint lib/**/*.ts && tsc",
+    "fix": "eslint lib/**/*.ts --fix",
+    "test-browser": "tsc && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=10001 --mount=/:test/src/typescript",
     "test-node": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register",
-    "test": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=9001 --mount=/:test/src/typescript",
-    "fix-test": "eslint test --ext .ts --fix"
+    "test": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=10001 --mount=/:test/src/typescript",
+    "fix-test": "eslint test/**/*.ts --fix"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/cyrildever/redacted#readme",
   "dependencies": {
-    "feistel-cipher": "^1.5.11"
+    "feistel-cipher": "^1.5.13"
   },
   "peerDependencies": {
     "blakejs": "^1.2.1",
@@ -38,20 +38,20 @@
     "sha3": "^2.1.4"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.11",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.16",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@types/chai": "^4.3.19",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
     "blakejs": "^1.2.1",
     "browserify": "17.0.0",
-    "chai": "^4.4.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-no-loops": "~0.3.0",
+    "chai": "^4.5.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-no-loops": "~0.4.0",
     "keccak": "^3.0.4",
-    "mocha": "^10.2.0",
+    "mocha": "^10.7.3",
     "sha3": "^2.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.2"
   }
 }
