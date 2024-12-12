@@ -1,6 +1,6 @@
 {
   "name": "redacted-ts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
@@ -39,19 +39,19 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.19",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^22.5.4",
-    "@typescript-eslint/eslint-plugin": "^8.5.0",
-    "@typescript-eslint/parser": "^8.5.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
     "blakejs": "^1.2.1",
-    "browserify": "17.0.0",
+    "browserify": "17.0.1",
     "chai": "^4.5.0",
-    "eslint": "^9.10.0",
+    "eslint": "^9.16.0",
     "eslint-plugin-no-loops": "~0.4.0",
     "keccak": "^3.0.4",
     "mocha": "^10.7.3",
     "sha3": "^2.1.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.7.2"
   }
 }

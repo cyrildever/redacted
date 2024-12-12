@@ -1,6 +1,6 @@
 organization := "com.cyrildever"
 name := "redacted-jar"
-version := "1.0.5"
+version := "1.0.6"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
@@ -11,6 +11,7 @@ mainClass in assembly := Some("com.cyrildever.redacted.Main")
 assemblyJarName in assembly := s"${name.value}-${version.value}.jar"
 
 resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
+resolvers += "jitpack" at "https://jitpack.io"
 
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.1.0",
