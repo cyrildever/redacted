@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "redacted-py"
-version = "1.0.6"
+version = "1.0.7"
 description = "Redacting classified documents"
 readme = "README.md"
 authors = [{ name = "Cyril Dever", email = "cdever@pep-s.com" }]
@@ -24,7 +24,7 @@ keywords = [
     "classified",
 ]
 dependencies = [
-    "feistel-py >= 0.2.0",
+    "feistel-py >= 0.3.0",
 ]
 requires-python = ">=3.10.2"
 

@@ -1,6 +1,8 @@
+eslint.config.mjs
 tsconfig.json
 node_modules
 cli
 lib
 test
 *.tgz
+.gitignore

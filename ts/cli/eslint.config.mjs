@@ -21,6 +21,7 @@ export default [...compat.extends(
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
 ), {
+    ignores: ["dist", "eslint.config.mjs"],
     plugins: {
         "no-loops": noLoops,
         "@typescript-eslint": typescriptEslint,
@@ -40,6 +41,7 @@ export default [...compat.extends(
 
         parserOptions: {
             project: "./tsconfig.json",
+            tsconfigRootDir: __dirname,
         },
     },
 

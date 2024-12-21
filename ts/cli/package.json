@@ -1,6 +1,6 @@
 {
   "name": "redacted-cli",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Redacting classified documents CLI",
   "main": "dist/index.js",
   "bin": {
@@ -8,8 +8,8 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "eslint ./**/*.ts && tsc",
-    "fix": "eslint ./**/*.ts --fix"
+    "compile": "eslint src/**/*.ts && tsc",
+    "fix": "eslint src/**/*.ts --fix"
   },
   "repository": {
     "type": "git",
@@ -33,17 +33,17 @@
   "dependencies": {
     "commander": "^11.1.0",
     "feistel-cipher": "^1.5.13",
-    "redacted-ts": "^1.0.6",
-    "figlet": "^1.7.0"
+    "redacted-ts": "^1.0.7",
+    "figlet": "^1.8.0"
   },
   "devDependencies": {
-    "@types/figlet": "^1.5.8",
+    "@types/figlet": "^1.7.0",
     "@types/node": "^22.10.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
-    "eslint": "^9.16.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "eslint": "^9.17.0",
     "eslint-plugin-no-loops": "~0.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.7.2"
   }
 }
