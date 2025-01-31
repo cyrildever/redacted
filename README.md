@@ -178,8 +178,8 @@ assert cleansed == "Some text tagged or using words in a dictionary", "Cleaning 
 In a Scala 2.12 project:
 ```sbt
 libraryDependencies ++= Seq(
-    "com.cyrildever" %% "feistel-jar" % "1.5.6",
-    "com.cyrildever" %% "redacted" % "1.0.5"
+    "com.cyrildever" %% "feistel-jar" % "1.5.7",
+    "com.cyrildever" %% "redacted" % "1.0.8"
 )
 ```
 
@@ -198,7 +198,7 @@ val expanded = redactor.expand(redacted)
 assert(expanded == source)
 ```
 
-_NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-jdk15to18-1.73.jar`._
+_NB: You might need to provide the expected BouncyCastle JAR file, eg. `bcprov-jdk15to18-1.80.jar`._
 
 
 <u>TypeScript/JavaScript</u>
@@ -231,4 +231,4 @@ Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
 <hr />
-&copy; 2021-2024 Cyril Dever. All rights reserved.
+&copy; 2021-2025 Cyril Dever. All rights reserved.

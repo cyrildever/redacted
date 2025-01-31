@@ -18,7 +18,7 @@ console.log(figlet.textSync('Redacted'))
 const program = new Command()
 
 // TODO Make it programmatic
-const version = process.env.npm_package_version || '1.0.11' // eslint-disable-line @typescript-eslint/strict-boolean-expressions
+const version = process.env.npm_package_version || '1.0.12' // eslint-disable-line @typescript-eslint/strict-boolean-expressions
 
 program
   .version(version)

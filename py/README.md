@@ -87,4 +87,4 @@ _NB: It is still under development so use in production at your own risk for now
 
 
 <hr />
-&copy; 2024 Cyril Dever. All rights reserved.
+&copy; 2024-2025 Cyril Dever. All rights reserved.
