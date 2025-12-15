@@ -1,6 +1,6 @@
 organization := "com.cyrildever"
 name := "redacted-jar"
-version := "1.0.8"
+version := "1.0.9"
 scalaVersion := "2.12.13"
 
 assemblyMergeStrategy in assembly := {
@@ -16,6 +16,6 @@ resolvers += "jitpack" at "https://jitpack.io"
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "4.1.0",
   "org.scalatest" %% "scalatest" % "3.2.19" % "test",
-  "org.scorexfoundation" %% "scrypto" % "3.0.0",
+  "org.scorexfoundation" %% "scrypto" % "3.1.0",
   "com.cyrildever" %% "feistel-jar" % "1.5.7"
 )

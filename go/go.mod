@@ -1,18 +1,17 @@
 module github.com/cyrildever/redacted/go
 
-go 1.23.0
-
-toolchain go1.23.1
+go 1.24.0
 
 require (
 	github.com/cyrildever/feistel v1.5.14
-	github.com/cyrildever/go-utls v1.10.6
+	github.com/cyrildever/go-utls v1.10.9
 	gotest.tools v2.2.0+incompatible
 )
 
 require (
+	github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20251213223233-751f36331c62 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
-	github.com/ethereum/go-ethereum v1.15.8 // indirect
+	github.com/ethereum/go-ethereum v1.16.7 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
@@ -23,9 +22,9 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
-	go.mongodb.org/mongo-driver v1.17.3 // indirect
-	golang.org/x/crypto v0.37.0 // indirect
-	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/sys v0.32.0 // indirect
-	golang.org/x/text v0.24.0 // indirect
+	go.mongodb.org/mongo-driver v1.17.6 // indirect
+	golang.org/x/crypto v0.46.0 // indirect
+	golang.org/x/net v0.48.0 // indirect
+	golang.org/x/sys v0.39.0 // indirect
+	golang.org/x/text v0.32.0 // indirect
 )
