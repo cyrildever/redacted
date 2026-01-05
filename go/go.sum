@@ -1,9 +1,9 @@
-github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20251213223233-751f36331c62 h1:Rge3uIIO891+nLqKTfMulCw+tWHtTl16Oudi0yUcAoE=
-github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20251213223233-751f36331c62/go.mod h1:ioLG6R+5bUSO1oeGSDxOV3FADARuMoytZCSX6MEMQkI=
+github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20260104020744-7268a54d0358 h1:B6uGMdZ4maUTJm+LYgBwEIDuJxgOUACw8K0Yg6jpNbY=
+github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20260104020744-7268a54d0358/go.mod h1:ioLG6R+5bUSO1oeGSDxOV3FADARuMoytZCSX6MEMQkI=
 github.com/cyrildever/feistel v1.5.14 h1:jbxrehKOjVwdI+N5gtuz4VQm9Q6UjwZMA+nDC+8rydE=
 github.com/cyrildever/feistel v1.5.14/go.mod h1:7MIjIdrJS+Np466qB+Jfqkw7EJp8hT2LWnnLGD7SnCc=
-github.com/cyrildever/go-utls v1.10.9 h1:DOtzrowlIX6CzlXnM3R6ieb7RqggOU62eZ+sbHu4bFg=
-github.com/cyrildever/go-utls v1.10.9/go.mod h1:3VKaxRKOUQIjPpgOWUTyRi9B8YAiQQcP3SW9AYkI560=
+github.com/cyrildever/go-utls v1.10.10 h1:IasAzabxsIdGSHD6ce/bgUquss2R33ExbN7cRZ3ixc0=
+github.com/cyrildever/go-utls v1.10.10/go.mod h1:PgCzRmXIC81pYHRDWUluu0VDKU4DIFXqiHG5/i/PfWg=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/decred/dcrd/crypto/blake256 v1.1.0 h1:zPMNGQCm0g4QTY27fOCorQW7EryeQ/U0x++OzVrdms8=

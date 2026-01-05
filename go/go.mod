@@ -4,12 +4,12 @@ go 1.24.0
 
 require (
 	github.com/cyrildever/feistel v1.5.14
-	github.com/cyrildever/go-utls v1.10.9
+	github.com/cyrildever/go-utls v1.10.10
 	gotest.tools v2.2.0+incompatible
 )
 
 require (
-	github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20251213223233-751f36331c62 // indirect
+	github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20260104020744-7268a54d0358 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
 	github.com/ethereum/go-ethereum v1.16.7 // indirect
 	github.com/fatih/color v1.18.0 // indirect
