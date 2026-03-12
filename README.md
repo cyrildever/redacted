@@ -231,4 +231,4 @@ Please [contact me](mailto:cdever@pep-s.com) to get further information.
 
 
 <hr />
-&copy; 2021-2025 Cyril Dever. All rights reserved.
+&copy; 2021-2026 Cyril Dever. All rights reserved.
