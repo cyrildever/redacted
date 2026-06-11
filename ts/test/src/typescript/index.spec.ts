@@ -1,11 +1,11 @@
 import * as feistel from 'feistel-cipher'
 import { BLAKE2b, KECCAK, SHA_256 } from 'feistel-cipher/dist/lib/src/typescript/utils/hash'
 
-import * as chai from 'chai'
-chai.should()
-import 'mocha'
-
 import { DefaultRedactor, Dictionary, RedactorWithDictionary, RedactorWithTag, stringToDictionary } from '../../../lib/src/typescript'
+// Side-effect import: registers the `.should` getter (runtime) and loads its
+// global type augmentation. Chai 6 ships no types, so the augmentation comes
+// from @types/chai's register-should.d.ts.
+import 'chai/register-should'
 
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 describe('Dictionary', () => {

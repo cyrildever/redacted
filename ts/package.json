@@ -1,15 +1,16 @@
 {
   "name": "redacted-ts",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Redacting classified documents",
   "main": "dist/lib/src/typescript/index.js",
   "types": "dist/lib/src/typescript/index.d.ts",
   "scripts": {
     "compile": "eslint lib/**/*.ts && tsc",
     "fix": "eslint lib/**/*.ts --fix",
-    "test-browser": "tsc && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=10001 --mount=/:test/src/typescript",
-    "test-node": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register",
-    "test": "tsc && mocha 'test/src/typescript/node.spec.ts' --require ts-node/register && browserify ./dist/test/src/typescript/browser.spec.js -o dist/test/src/typescript/index.js && live-server --port=10001 --mount=/:test/src/typescript",
+    "test": "npm run test-node && npm run test-browser",
+    "test-browser": "tsc && node esbuild.browser.mjs && live-server --port=10001 --mount=/:test/src/typescript",
+    "test-node": "tsc && esbuild test/src/typescript/index.spec.ts --bundle --outfile=dist/test/node.spec.cjs --platform=node --format=cjs --external:keccak && mocha dist/test/node.spec.cjs",
+    "test:ci": "tsc && esbuild test/src/typescript/index.spec.ts --bundle --outfile=dist/test/node.spec.cjs --platform=node --format=cjs --external:keccak && mocha dist/test/node.spec.cjs",
     "fix-test": "eslint test/**/*.ts --fix"
   },
   "repository": {
@@ -30,7 +31,7 @@
   },
   "homepage": "https://github.com/cyrildever/redacted#readme",
   "dependencies": {
-    "feistel-cipher": "^1.5.15"
+    "feistel-cipher": "^1.6.0"
   },
   "peerDependencies": {
     "blakejs": "^1.2.1",
@@ -38,20 +39,24 @@
     "sha3": "^2.1.4"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.20",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^9.39.2",
+    "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^25.4.0",
-    "@typescript-eslint/eslint-plugin": "^8.57.0",
-    "@typescript-eslint/parser": "^8.57.0",
+    "@types/node": "^25.9.3",
+    "@typescript-eslint/eslint-plugin": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.0",
     "blakejs": "^1.2.1",
-    "browserify": "17.0.1",
-    "chai": "^4.5.0",
+    "chai": "^6.2.2",
+    "crypto-browserify": "^3.12.1",
+    "esbuild": "^0.28.0",
     "eslint": "^9.39.4",
     "eslint-plugin-no-loops": "~0.4.0",
     "keccak": "^3.0.4",
-    "mocha": "^11.7.5",
+    "mocha": "^11.7.6",
     "sha3": "^2.1.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   }
 }
